@@ -9,6 +9,7 @@ var layouts = require('express-ejs-layouts');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var User = require('./models/user');
 
 app.use(cookieParser());
 
@@ -23,7 +24,7 @@ app.use(flash());
 
 app.use(function(req, res, next){
     res.locals.errors = req.flash('error');
-    console.log(res.locals.errors);
+    // console.log(res.locals.errors);
     next();
 });
 
@@ -50,6 +51,40 @@ app.use(methodOverride(function(req, res){
 app.set('view engine', 'ejs');
 app.use(layouts);
 
+// load logged in user
+app.use(function(req,res,next) {
+
+  // no user id? just move on
+  if(!req.session.user) {
+     res.locals.user = false;
+    next();
+  } else {
+
+    // load the user with the ID in the session
+    User.findById(req.session.user , function(err, user){
+      
+      if(user) {
+        // add the user to the request object
+        req.user = user;
+        // add it to locals so we can use it in all templates
+        res.locals.user = user;
+      } else {
+        // couldn't find it... that's weird. clear the session
+        req.session.user = null;
+      }
+
+      next(err);
+    });
+  }
+});
+
+app.use(function(req, res, next) {
+  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
+  if(urls.indexOf(req.url) === -1) {
+    if (!req.user) return res.redirect('/sessions/new');
+  }
+  next();
+});
 
 app.use(router);
 
