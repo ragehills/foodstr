@@ -1,0 +1,8 @@
+<h1>Welcome to the Recipe Page!</h1>
+
+<% for(var i = 0; i < recipes.length; i++ ) { %>
+  <div>
+    <h3><a href="/<%= recipes[i].id %>"><%= recipes[i].title %></a></h3>
+    <p><%= recipes[i].body %></p>
+  </div>
+ <% } %>

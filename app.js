@@ -15,7 +15,7 @@ mongoose.connect('mongodb://localhost/recipes', function() {
 
 
 
-express.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.use(layouts);
 
 
