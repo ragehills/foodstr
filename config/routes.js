@@ -17,6 +17,9 @@ router.route('/users')
 router.route('/users/new')
       .get(usersController.new);
 
+// router.route('/users/:id')
+//   .get(usersController.show);
+
 router.route('/')
   .get(recipesController.index)
   .post(recipesController.create);

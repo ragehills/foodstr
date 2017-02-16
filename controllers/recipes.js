@@ -40,7 +40,7 @@ function newRecipes(req, res) {
 
 function createRecipes(req, res) {
 	Recipe.create(req.body, function(err, recipe) {
-		if(err) req.flash('error' , err.message);
+		if(err) req.flash('error' , "Sorry, something went wrong with posting your recipe please try again!");
 		res.redirect("/");
 	});
 }
