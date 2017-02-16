@@ -2,6 +2,8 @@ var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000;
 var router = require('./config/routes');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var layouts = require('express-ejs-layouts');
 
@@ -11,9 +13,20 @@ mongoose.connect('mongodb://localhost/recipes', function() {
 })
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
 
+  // parse application/json
+app.use(bodyParser.json());
 
-
+// method override
+app.use(methodOverride(function(req, res){
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    var method = req.body._method
+    delete req.body._method
+    return method
+  }
+}));
 
 app.set('view engine', 'ejs');
 app.use(layouts);

@@ -3,6 +3,11 @@
 <% for(var i = 0; i < recipes.length; i++ ) { %>
   <div>
     <h3><a href="/<%= recipes[i].id %>"><%= recipes[i].title %></a></h3>
-    <p><%= recipes[i].body %></p>
+    <p><%= recipes[i].ingredient %></p>
+    <p><%= recipes[i].method %></p>
+    <p><%= recipes[i].cookTime %></p>
+    <p><%= recipes[i].prepTime %></p>
+    <p><%= recipes[i].serves %></p>
+    <p><%= recipes[i].skill %></p>
   </div>
  <% } %>

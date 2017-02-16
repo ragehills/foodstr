@@ -34,7 +34,7 @@ describe('Recipes', function() {
 		});
 	});
 
-	// describe a test for ID/GET
+	// describe a test for show
 	it('should list a SINGLE recipe on /<id> GET', function(done) {
 		chai.request(app)
 	  	.get('/' + recipe._id)
@@ -48,7 +48,7 @@ describe('Recipes', function() {
 	  	});
 	});
 
-	// describe a test for GET
+	// describe a test for index
 	it('should list ALL recipes on / GET', function(done) {
 		var request = chai.request(app);
 		request
@@ -62,78 +62,72 @@ describe('Recipes', function() {
 		});
 	});
 
-// 	// describe a test for POST
-//   	it('should add a SINGLE recipe on / POST' , function(done){
-// 	    var request = chai.request(app);
-// 	    request.post('/')
-// 	      	.set('content-type', 'application/x-www-form-urlencoded')
-// 	      	.send({
-// 		        _id: 123,
-// 		        title: "Baked Rigatoni with Bechamel Sauce",
-// 				ingredient: "115g unsalted butter, 1/2 cup and 2 tbsps plain flour, 1L whole milk, at room temperature, Pinch fresh nutmeg, Sea salt and white pepper, 1 cup grated Fontina cheese, 250g thinly sliced prosciutto or ham, julienned, 500g dry rigatoni, 40g unsalted butter, diced",
-// 				method: "Preheat the oven to 210C/Gas 7. 1) In a 2-litre saucepan, melt the butter over medium heat. Add the flour and whisk until smooth, about 2 minutes. Always stirring, gradually add the milk and continue to whisk until the sauce is smooth and creamy. Simmer until it is thick enough to coat the back of a spoon. This will take approximately 10 minutes. Remove from the heat and stir in the nutmeg, 1/2 cup of Fontina cheese and prosciutto, and season with salt and white pepper. Set aside. 2) In a large pot, bring to a boil 5 1/2 litres of salted water. Add the rigatoni and cook for about 5 minutes. Since you will be cooking the pasta a second time in the oven, you want to make sure the inside is still hard. Drain in a colander. Return the pasta to the pot and pour in the bechamel sauce. Using a wooden spoon, mix well until all of the pasta is coated with the sauce. 3) Into a greased 23-by-33 cm baking dish, pour the pasta and cream sauce. Smooth out the top and sprinkle with the remaining 1/2 cup of Fontina. Dot the top with diced butter and bake in the oven for 25 minutes or until bubbling and the top is golden brown.",
-// 				cookTime: 30,
-// 				prepTime: 25,
-// 				serves: 6,
-// 				skill: 3
-// 	      	})
-// 	      	.end(function(err, res){
-// 		        res.should.have.status(200);
-// 		        res.should.be.html;
-// 		        // res.text.should.match(/All recipes/);
-// 		        request
-// 				.get('/123')
-// 				.end(function(err, res){
-// 		            res.should.have.status(200);
-// 		            res.should.be.html;
-// 		            res.text.should.match(/115g unsalted butter/);
-// 		            res.text.should.match(/Baked Rigatoni with Bechamel Sauce/);
+	// describe a test for POST
+  	it('should add a SINGLE recipe on / POST' , function(done){
+	    var request = chai.request(app);
+	    request.post('/')
+	      	.set('content-type', 'application/x-www-form-urlencoded')
+	      	.send({
+		        title: "Baked Rigatoni with Bechamel Sauce",
+				ingredient: "115g unsalted butter, 1/2 cup and 2 tbsps plain flour, 1L whole milk, at room temperature, Pinch fresh nutmeg, Sea salt and white pepper, 1 cup grated Fontina cheese, 250g thinly sliced prosciutto or ham, julienned, 500g dry rigatoni, 40g unsalted butter, diced",
+				method: "Preheat the oven to 210C/Gas 7. 1) In a 2-litre saucepan, melt the butter over medium heat. Add the flour and whisk until smooth, about 2 minutes. Always stirring, gradually add the milk and continue to whisk until the sauce is smooth and creamy. Simmer until it is thick enough to coat the back of a spoon. This will take approximately 10 minutes. Remove from the heat and stir in the nutmeg, 1/2 cup of Fontina cheese and prosciutto, and season with salt and white pepper. Set aside. 2) In a large pot, bring to a boil 5 1/2 litres of salted water. Add the rigatoni and cook for about 5 minutes. Since you will be cooking the pasta a second time in the oven, you want to make sure the inside is still hard. Drain in a colander. Return the pasta to the pot and pour in the bechamel sauce. Using a wooden spoon, mix well until all of the pasta is coated with the sauce. 3) Into a greased 23-by-33 cm baking dish, pour the pasta and cream sauce. Smooth out the top and sprinkle with the remaining 1/2 cup of Fontina. Dot the top with diced butter and bake in the oven for 25 minutes or until bubbling and the top is golden brown.",
+				cookTime: 30,
+				prepTime: 25,
+				serves: 6,
+				skill: 3
+	      	})
+	      	.end(function(err, res){
+		        res.should.have.status(200);
+		        res.should.be.html;
+		        // res.text.should.match(/All recipes/);
+		        request
+				.get('/')
+				.end(function(err, res){
+		            res.should.have.status(200);
+		            res.should.be.html;
+		            res.text.should.match(/30/);
+		            res.text.should.match(/25/);
+		            done();
+	          	});
+	      	});
+  	});
 
-// 		            Recipe.findByIdAndRemove(123, function(err) {
-// 		              if (err) return console.log(err);
-// 		              done();
-// 		            });
-// 	          	});
-// 	      	});
-//   	});
+	// describe a test for PUT
+	it('should update a SINGLE recipe on /<id> PUT' , function(done){
+		var request = chai.request(app);
+		request.put('/' + recipe._id)
+		.set('content-type', 'application/x-www-form-urlencoded')
+		.send({'cookTime': 30, 'serves': 7})
+		.end(function(err, res){
+			res.should.have.status(200);
+			res.should.be.html;
+			// res.text.should.match(/All recipes/);
+			request
+			.get('/' + recipe._id)
+			.end(function(err, res){
+			    // res.should.have.status(200);
+			    res.should.be.html;
+			    res.text.should.match(/30/);
+			    res.text.should.match(/serves/);
+			    done();
+			});
+		});
+	});
 
-// 	// describe a test for PUT
-// 	it('should update a SINGLE recipe on /<id> PUT' , function(done){
-// 		var request = chai.request(app);
-// 		request.put('/' + recipe.id)
-// 		.set('content-type', 'application/x-www-form-urlencoded')
-// 		.send({'cookTime': 30, 'serves': 6})
-// 		.end(function(err, res){
-// 			res.should.have.status(200);
-// 			res.should.be.html;
-// 			res.text.should.match(/All recipes/);
-// 			request
-// 			.get('/' + recipe.id)
-// 			.end(function(err, res){
-// 			    res.should.have.status(200);
-// 			    res.should.be.html;
-// 			    res.text.should.match(/30/);
-// 			    res.text.should.match(/serves/);
-// 			    done();
-// 			});
-// 		});
-// 	});
-
-// 	// describe a test for DELETE
-// 	it('should delete a SINGLE recipe on /<id> DELETE' , function(done) {
-// 		var request = chai.request(app);
-// 		request.delete('/' + recipe.id)
-// 		.end(function(err, res){
-// 		    res.should.have.status(200);
-// 		    res.should.be.html;
-// 		    res.text.should.match(/All recipes/);
-// 		    request
-// 				.get('/' + recipe.id)
-// 				.end(function(err, res){
-// 			        res.should.have.status(404);
-// 			        done();
-// 		    	});
-// 		});
-// 	});
-// });
+	// describe a test for DELETE
+	it('should delete a SINGLE recipe on /<id> DELETE' , function(done) {
+		var request = chai.request(app);
+		request.delete('/' + recipe.id)
+		.end(function(err, res){
+		    res.should.have.status(200);
+		    res.should.be.html;
+		    res.text.should.match(/All recipes/);
+		    request
+				.get('/' + recipe.id)
+				.end(function(err, res){
+			        res.should.have.status(404);
+			        done();
+		    	});
+		});
+	});
 });

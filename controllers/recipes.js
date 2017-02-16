@@ -23,6 +23,7 @@ function showRecipes(req, res) {
 
 function newRecipes(req, res) {
 	var newRecipe = {
+		id: "",
 		title: String,
 		ingredient: String,
 		method: String,
