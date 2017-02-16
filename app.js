@@ -6,6 +6,16 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var layouts = require('express-ejs-layouts');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+app.use(cookieParser());
+
+app.use(session({
+  resave: false,
+  saveUninitialized: true,
+  secret: 'spartasupersecretkey'
+}));
 
 
 mongoose.connect('mongodb://localhost/recipes', function() {
