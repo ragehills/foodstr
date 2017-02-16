@@ -11,27 +11,66 @@ function indexRecipes(req, res) {
 }
 
 function showRecipes(req, res) {
-	res.send('show');
+	Recipe.findById(req.params.id , function(err, recipe) {
+		if(!recipe) return res.status(404).send("Sorry Recipe not found!");
+		if(err) return res.status(500).send(err);
+		res.render("recipes/show" , {
+      		title: "Recipe",
+    		recipe: recipe
+    	});
+	});
 }
 
 function newRecipes(req, res) {
-	res.send('new');
+	var newRecipe = {
+		title: String,
+		ingredient: String,
+		method: String,
+		cookTime: Number,
+		prepTime: Number,
+		serves: Number,
+		skill: Number
+	}
+	res.render("recipes/new" , {
+		title: "New Recipe",
+		recipe: newRecipe
+	});
 }
 
 function createRecipes(req, res) {
-	res.send('create');
+	Recipe.create(req.body, function(err, recipe) {
+		if(err) return res.status(500).send(err);
+		res.redirect("/");
+	});
 }
 
 function editRecipes(req, res) {
-	res.send('edit');
+	Recipe.findById(req.params.id , function(err, recipe) {
+		if(!recipe) return res.status(404).send("Sorry Recipe not found!");
+		if(err) return res.status(500).send(err);
+		res.render("recipes/edit" , {
+      		title: "Recipe",
+    		recipe: recipe
+    	});
+	});
 }
 
 function updateRecipes(req, res) {
-	res.send('update');
+	Recipe.findByIdAndUpdate(
+		req.params.id,
+		{ $set: req.body },
+		{ runValidators: true },
+		function(err, recipe) {
+			if(err) return res.status(500).send(err);
+			res.redirect("/");
+		}
+	);
 }
 
 function deleteRecipes(req, res) {
-	res.send('delete');
+	Recipe.findByIdAndRemove(req.params.id , function(err) {
+		res.redirect("/")
+	});
 }
 
 module.exports = {
