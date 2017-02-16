@@ -1,6 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var recipesController = require('../controllers/recipes');
+var usersController = require('../controllers/users');
+
+router.route('/users')
+      .post(usersController.create);
+
+router.route('/users/new')
+      .get(usersController.new);
 
 router.route('/')
   .get(recipesController.index)
