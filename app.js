@@ -20,6 +20,13 @@ app.use(session({
 
 app.use(flash());
 
+
+app.use(function(req, res, next){
+    res.locals.errors = req.flash('error');
+    console.log(res.locals.errors);
+    next();
+});
+
 mongoose.connect('mongodb://localhost/recipes', function() {
 	console.log('database connected.')
 })
