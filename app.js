@@ -5,7 +5,7 @@ var router = require('./config/routes');
 var mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/autotrader', function() {
+mongoose.connect('mongodb://localhost/recipes', function() {
 	console.log('database connected.')
 })
 
@@ -17,3 +17,4 @@ app.listen(port, function() {
 
 
  	
+module.exports = app

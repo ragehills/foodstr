@@ -1,5 +1,5 @@
 function indexRecipes(req, res) {
- 		res.send('index');
+ 	res.send('index');
 }
 
 function showRecipes(req, res) {
@@ -34,3 +34,4 @@ module.exports = {
 	edit: editRecipes,
 	update: updateRecipes,
 	delete: deleteRecipes
+}
