@@ -39,8 +39,8 @@ describe('Recipes', function() {
 		.end(function(err, res){
 			res.should.have.status(200);
 			res.should.be.html;
-			// res.text.should.match("All recipes");
-			// res.text.should.match("Baked Manicotti with Sausage and Peas");
+			res.text.should.match("All recipes");
+			res.text.should.match("Baked Manicotti with Sausage and Peas");
 			done();
 		});
 	});
@@ -52,7 +52,7 @@ describe('Recipes', function() {
 	  	.end(function(err, res){
 		    res.should.have.status(200);
 		    res.should.be.html;
-		    // res.text.should.match(/Post 1/);
+		    res.text.should.match(/Post 1/);
 		    done();
 	  });
 	});
@@ -75,14 +75,14 @@ describe('Recipes', function() {
 	      	.end(function(err, res){
 		        res.should.have.status(200);
 		        res.should.be.html;
-		        // res.text.should.match(/All recipes/);
+		        res.text.should.match(/All recipes/);
 		        request
 				.get('/123')
 				.end(function(err, res){
 		            res.should.have.status(200);
 		            res.should.be.html;
-		            // res.text.should.match(/115g unsalted butter/);
-		            // res.text.should.match(/Baked Rigatoni with Bechamel Sauce/);
+		            res.text.should.match(/115g unsalted butter/);
+		            res.text.should.match(/Baked Rigatoni with Bechamel Sauce/);
 
 		            Recipe.findByIdAndRemove(123, function(err) {
 		              if (err) return console.log(err);

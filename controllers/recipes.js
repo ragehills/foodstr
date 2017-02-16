@@ -1,5 +1,13 @@
+var Recipe = require('../models/recipe');
+
 function indexRecipes(req, res) {
- 	res.send('index');
+	Recipe.find({} , function(err, recipes) {
+		if(err) return res.status(500).send(err);
+		res.render("recipes/index" , {
+			title: "Recipes",
+			recipes: recipes
+		});
+	});
 }
 
 function showRecipes(req, res) {
