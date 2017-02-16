@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var layouts = require('express-ejs-layouts');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 app.use(cookieParser());
 
@@ -17,6 +18,7 @@ app.use(session({
   secret: 'spartasupersecretkey'
 }));
 
+app.use(flash());
 
 mongoose.connect('mongodb://localhost/recipes', function() {
 	console.log('database connected.')

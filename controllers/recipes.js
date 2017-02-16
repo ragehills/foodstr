@@ -40,11 +40,11 @@ function newRecipes(req, res) {
 
 function createRecipes(req, res) {
 	Recipe.create(req.body, function(err, recipe) {
-		if(err) return res.status(500).send(err);
+		if(err) req.flash('error' , err.message);
 		res.redirect("/");
 	});
 }
-
+   
 function editRecipes(req, res) {
 	Recipe.findById(req.params.id , function(err, recipe) {
 		if(!recipe) return res.status(404).send("Sorry Recipe not found!");
