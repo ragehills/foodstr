@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
 var User = require('./models/user');
+var path = require('path');
 
 app.use(cookieParser());
 
@@ -32,6 +33,8 @@ mongoose.connect('mongodb://localhost/recipes', function() {
 	console.log('database connected.')
 })
 
+// use public folder to insert external files into the wesite page
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
