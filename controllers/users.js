@@ -1,14 +1,15 @@
 var User = require('../models/user');
 
-// function showRecipes(req, res) {
-// 	Recipe.findById(req.params.id , function(err, recipe) {
-// 		if(!recipe) return res.status(404).send("Sorry Recipe not found!");
-// 		if(err) return res.status(500).send(err);
-// 		res.render("users/show" , {
-      		
-//     	});
-// 	});
-// }
+function showUser(req, res) {
+	User.findById(req.params.id , function(err, user) {
+		if(!user) return res.status(404).send("Sorry Recipe not found!");
+		if(err) return res.status(500).send(err);
+		res.render("users/show" , {
+      		title: "User",
+    		user: user
+    	});
+	});
+}
 
 // NEW ( Registration )
 function newUser(req,res) {
@@ -28,5 +29,7 @@ function createUser(req,res){
 
 module.exports = {
   new: newUser,
-  create: createUser
+  create: createUser,
+  show: showUser
+
 }

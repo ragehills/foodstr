@@ -1,1 +1,13 @@
-<p><%= user.recipes %></p>
+<h1><%= user.first_name%>'s Dashboard</h1>
+
+<% for(var i = 0; i < user.length; i++ ) { %>
+  <div>
+    <h3><a href="/<%= user.recipes[i].id %>"><%= user.recipes[i].title %></a></h3>
+    <p><%= user.recipes[i].ingredient %></p>
+    <p><%= user.recipes[i].method %></p>
+    <p><%= user.recipes[i].cookTime %></p>
+    <p><%= user.recipes[i].prepTime %></p>
+    <p><%= user.recipes[i].serves %></p>
+    <p><%= user.recipes[i].skill %></p>
+  </div>
+ <% } %>

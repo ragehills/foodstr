@@ -1,15 +1,16 @@
-<h1>Show</h1>
-<h2><%= recipe.title %></h2>
-<p><%= recipe.ingredient %></p>
-<p><%= recipe.method %></p>
-<p><%= recipe.cookTime %></p>
-<p><%= recipe.prepTime %></p>
-<p><%= recipe.serves %></p>
-<p><%= recipe.skill %></p>
-
-<a href="/<%= recipe.id %>/edit">edit</a>
+<h1>Show (enter a new page title)</h1>
+<div class="card">
+	<img src="<%=recipe.url %>">
+	<h2><%= recipe.title %></h2>
+	<p><%= recipe.ingredient %></p>
+	<p><%= recipe.method %></p>
+	<p><%= recipe.cookTime %></p>
+	<p><%= recipe.prepTime %></p>
+	<p><%= recipe.serves %></p>
+	<p><%= recipe.skill %></p>
+</div>
 
 <form action="/<%= recipe.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
+  <input type="submit" value="Delete" class="btn btn-primary">
 </form> 
