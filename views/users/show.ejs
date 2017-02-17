@@ -1,6 +1,6 @@
 <h1><%= user.first_name%>'s Dashboard</h1>
 
-<% for(var i = 0; i < user.length; i++ ) { %>
+<% for(var i = 0; i < user.recipes.length; i++ ) { %>
   <div>
     <h3><a href="/<%= user.recipes[i].id %>"><%= user.recipes[i].title %></a></h3>
     <p><%= user.recipes[i].ingredient %></p>

@@ -1,12 +1,12 @@
 var User = require('../models/user');
 
 function showUser(req, res) {
-	User.findById(req.params.id , function(err, user) {
+	User.findById(req.params.id).populate('recipes').exec(function(err, user) {
 		if(!user) return res.status(404).send("Sorry Recipe not found!");
 		if(err) return res.status(500).send(err);
 		res.render("users/show" , {
       		title: "User",
-    		user: user
+    		  user: user
     	});
 	});
 }

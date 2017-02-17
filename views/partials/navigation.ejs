@@ -1,15 +1,21 @@
-<nav>
-  <% if(user) { %>
-    <a href="/">Recipes</a>
-    <a href="/new">New Recipe</a>
-    <a href="/users/<%= user.id %>">My Recipes</a>
-    <form action="/sessions" method="POST">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout">
-    </form>
-    <p>Welcome, <%= user.first_name %></p>
-  <% } else { %>
-    <a href="/sessions/new">Login</a>
-    <a href="/users/register">Register</a>
-  <% } %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <% if(user) { %>
+        <a class="navbar-brand" href="/">
+          <img alt="Brand" src="../../public/images/Goodir.ico">
+        </a>
+        <a href="/">Recipes</a>
+        <a href="/new">New Recipe</a>
+        <a href="/users/<%= user.id %>">My Recipes</a>
+        <form action="/sessions" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Logout" class="btn btn-default navbar-btn">
+        </form>
+      <% } else { %>
+          <a href="/sessions/new">Login</a>
+          <a href="/users/new">Register</a>
+      <% } %>
+    </div>
+  </div>
 </nav>

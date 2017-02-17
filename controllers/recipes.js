@@ -1,4 +1,5 @@
 var Recipe = require('../models/recipe');
+var User = require('../models/user');
 
 function indexRecipes(req, res) {
 	Recipe.find({} , function(err, recipes) {
@@ -24,13 +25,13 @@ function showRecipes(req, res) {
 function newRecipes(req, res) {
 	var newRecipe = {
 		id: "",
-		title: String,
-		ingredient: String,
-		method: String,
-		cookTime: Number,
-		prepTime: Number,
-		serves: Number,
-		skill: Number
+		title: "",
+		ingredient: "",
+		method: "",
+		cookTime: 0,
+		prepTime: 0,
+		serves: 0,
+		skill: 0
 	}
 	res.render("recipes/new" , {
 		title: "New Recipe",
@@ -41,7 +42,10 @@ function newRecipes(req, res) {
 function createRecipes(req, res) {
 	Recipe.create(req.body, function(err, recipe) {
 		if(err) req.flash('error' , "Sorry, something went wrong with posting your recipe please try again!");
-		res.redirect("/");
+		User.findByIdAndUpdate(req.user.id, { $addToSet: { recipes: recipe } }, function(err, user) {
+			if(err) req.flash('error' , "Sorry, something went wrong with posting your recipe please try again!");
+			res.redirect("/");
+		})
 	});
 }
    
