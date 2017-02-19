@@ -1,16 +1,15 @@
+body {
+	background-color: aqua;
+}
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
+
 #messages {
 	color: rgba(210,54,65,0.8);
 }
-
-/*.goodir {
-	position: absolute;
-	border: none;
-	padding: none;
-	top: 0;
-	display: inline-block;
-	float: left;
-	z-index: -1;
-}*/
 
 .navbar-header, .container-fluid {
 	width: 100%;
@@ -21,24 +20,54 @@
 	display: inline-block;
 }
 
-.logout {
-	position: relative;
-	transform:translateX(50vw);
+@media only screen and (min-width: 1204px) {
+    .logout {
+		position: relative;
+		transform:translateX(50vw);
+		padding-right: 5vw;
+		margin-right: 5vw;
+	}
 }
 
 #right {
 	position: relative;
-	right: 0;
 }	
 
-/*@media only screen and (min-width: 780px) {
-    .navbar-nav{
-    	position: relative;
-  		padding none;
-	}
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
 }
 
-.navbar-nav{
-	position: relative;
-	padding-left: 62vw;
-}*/
+.btn-danger {
+    background: rgb(32, 196, 146);
+    color: white;
+}
+ 
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open > .dropdown-toggle.btn-danger {
+    background: #C1EDC9;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #C1EDC9;
+    box-shadow: none;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family:'Vollkorn', serif;
+}
+
+.card {
+	
+}
+/*#rgb(165,168,149) quick silver
+#rgb(221,216,196) Bone
+#rgb(138,196,146) Dark sea green
+#rgb(193,237,201) Tea green
+#rgb(218,229,213) Gainsboro*/
