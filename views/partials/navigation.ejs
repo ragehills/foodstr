@@ -10,7 +10,7 @@
         <a href="/users/<%= user.id %>">My Recipes</a>
         <form action="/sessions" method="POST">
           <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Logout" class="btn btn-default navbar-btn">
+          <input type="submit" value="Logout" class="btn btn-default navbar-btn navbar-right">
         </form>
       <% } else { %>
           <a href="/sessions/new">Login</a>

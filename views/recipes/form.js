@@ -1,10 +1,12 @@
 <form action="/<%= recipe.id %>" method="POST">
-	<label for="title">Title</label>
-	<input type="text" name="title" value="<%= recipe.title %>" placeholder="Enter a title" >
-
-	<label for="ingredient">Ingredient</label>
-	<textarea name="ingredient" placeholder="Ingredients"><%= recipe.ingredient %></textarea>
-
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">Recipe Title</span>
+		<input type="text" class="form-control" placeholder="Enter a title" value="<%= recipe.title %>" aria-describedby="basic-addon1">
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">Ingredients</span>
+		<input type="text" class="form-control" placeholder="Enter your ingredients" value="<%= recipe.ingredient %>" aria-describedby="basic-addon1">
+	</div>
 	<label for="method">Method</label>
 	<textarea name="method" placeholder="Method"><%= recipe.method %></textarea>
 
