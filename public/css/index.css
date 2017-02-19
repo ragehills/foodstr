@@ -1,3 +1,44 @@
 #messages {
 	color: rgba(210,54,65,0.8);
 }
+
+/*.goodir {
+	position: absolute;
+	border: none;
+	padding: none;
+	top: 0;
+	display: inline-block;
+	float: left;
+	z-index: -1;
+}*/
+
+.navbar-header, .container-fluid {
+	width: 100%;
+}
+
+
+.inline {
+	display: inline-block;
+}
+
+.logout {
+	position: relative;
+	transform:translateX(50vw);
+}
+
+#right {
+	position: relative;
+	right: 0;
+}	
+
+/*@media only screen and (min-width: 780px) {
+    .navbar-nav{
+    	position: relative;
+  		padding none;
+	}
+}
+
+.navbar-nav{
+	position: relative;
+	padding-left: 62vw;
+}*/

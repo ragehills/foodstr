@@ -2,19 +2,20 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <% if(user) { %>
-        <a class="navbar-brand" href="/">
-          <img alt="Brand" src="/images/Goodir.jpg">
-        </a>
-        <a href="/">Recipes</a>
-        <a href="/new">New Recipe</a>
-        <a href="/users/<%= user.id %>">My Recipes</a>
-        <form action="/sessions" method="POST">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Logout" class="btn btn-default navbar-btn navbar-right">
-        </form>
+        <div class="inline">
+          <a class="btn btn-danger navbar-btn inline" href="/">Recipes</a>
+          <a class="btn btn-danger navbar-btn inline" href="/new">New Recipe</a>
+          <a class="btn btn-danger navbar-btn inline" href="/users/<%= user.id %>">My Recipes</a>
+          <form action="/sessions" class="inline logout navbar-right" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout" id="right" class="btn btn-default navbar-btn navbar-right">
+          </form>
+        </div>
       <% } else { %>
-          <a href="/sessions/new">Login</a>
-          <a href="/users/new">Register</a>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/sessions/new"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
       <% } %>
     </div>
   </div>
