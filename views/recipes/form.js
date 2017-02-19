@@ -3,28 +3,41 @@
 		<span class="input-group-addon" id="basic-addon1">Recipe Title</span>
 		<input type="text" class="form-control" placeholder="Enter a title" value="<%= recipe.title %>" aria-describedby="basic-addon1">
 	</div>
-	<div class="input-group">
-		<span class="input-group-addon" id="basic-addon1">Ingredients</span>
-		<input type="text" class="form-control" placeholder="Enter your ingredients" value="<%= recipe.ingredient %>" aria-describedby="basic-addon1">
+	<br>
+	<div class="form-group">
+  		<label for="comment">Ingredients:</label>
+  		<textarea class="form-control" rows="5" id="comment" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>
 	</div>
-	<label for="method">Method</label>
-	<textarea name="method" placeholder="Method"><%= recipe.method %></textarea>
 
-	<label for="cookTime">Cook Time:</label>
-	<input type="number" name="cookTime" value="<%= recipe.cookTime %>" min="0">
+	<div class="form-group">
+		<label for="comment">Method:</label>
+		<textarea class="form-control" rows="5" id="comment" placeholder="Method"><%= recipe.method %></textarea>
+	</div>
 
-	<label for="prepTime">Prep Time:</label>
-	<input type="number" name="prepTime" value="<%= recipe.prepTime %>" min="0">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="form-group">
+			    
+			    <label for="cookTime">Cook Time:</label>
+				<input type="number" class="form-control" name="cookTime" value="<%= recipe.cookTime %>" min="0">
+				
+				<label for="prepTime">Prep Time:</label>
+				<input type="number" class="form-control" name="prepTime" value="<%= recipe.prepTime %>" min="0">
+				
+				<label for="serves">Serves</label>
+				<input type="number" class="form-control" name="serves" value="<%= recipe.serves %>" min="0" max="10">
 
-	<label for="serves">Serves</label>
-	<input type="number" name="serves" value="<%= recipe.serves %>" min="0" max="10">
+				<label for="skill">Difficulty Level</label>
+				<input type="number" class="form-control" name="skill" value="<%= recipe.skill %>" min="0" max="5">
 
-	<label for="skill">Difficulty Level</label>
-	<input type="number" name="skill" value="<%= recipe.skill %>" min="0" max="5">
+			</div>
+		</div>
+	</div>
 
 	<input type="submit" value="Save recipe">
 	<% if(recipe.id != "") { %>
 	<input type="hidden" name="_method" value="PUT">
 	<% } %>
 </form>
+
 
