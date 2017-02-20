@@ -72,12 +72,20 @@ function createRecipe(req , res) {
 
 }
 
+function likeRecipe(req, res) {
+  Recipe.findByIdAndUpdate(req.params.id, { $inc: { likes: 1}}, {new: true}, function(err, recipe) {
+    if (err) return res.status(500).json({ error: err.message});
+    return res.status(200).json({message: "Request sending successfully", likes: recipes.likes});
+  })
+}
+
 module.exports = {
 
   index:indexRecipe,
   show: showRecipe,
   delete: deleteRecipe,
   update: updateRecipe,
-  create: createRecipe
+  create: createRecipe,
+  like: likeRecipe
 
 }
