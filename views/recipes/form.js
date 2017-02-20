@@ -43,8 +43,8 @@
 		</div>
 	</div> 
 	<label for="saveRecipe"></label>
-	<input class="btn btn-default" type="submit" value="Save Recipe">
+	<input class="btn btn-danger" type="submit" value="Save Recipe">
   	<% if(recipe.id != "") { %>
-	  	<input class="btn btn-default" type="hidden" name="_method" value="PUT">
+	  	<input class="btn btn-danger" type="hidden" name="_method" value="PUT">
   	<% } %>
 </form>
