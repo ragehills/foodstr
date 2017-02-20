@@ -14,10 +14,10 @@
 				<p id="increment"></p>
 		    </div>
 	    	<a class="btn btn-danger padding" href="/<%= recipe.id %>/edit">edit</a>
+	    	<form action="/<%= recipe.id %>" method="POST">
+			  <input type="hidden" name="_method" value="DELETE">
+			  <input type="submit" value="Delete" class="btn btn-danger">
+			</form> 
 	    </div>
 	</div>
 </div>
-<form action="/<%= recipe.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete" class="btn btn-danger">
-</form> 
