@@ -1,112 +1,57 @@
 <h1>Recipe Page</h1>
 <p>Welcome, <%= user.first_name %> to the recipe page!</p>
 
-
+     
+ <div class="row">
+    <div class="container">
+        <div class="panel panel-default col-lg-4">
+            <div class="img-panel"><img src="/images/ColorScheme.jpg"></div>
+            <div class="panel-body">
+            </div>
+        </div>
+        <div class="panel panel-default col-lg-4">
+            <div class="img-panel"><img src="/images/ColorScheme.jpg"></div>
+            <div class="panel-body">
+              
+            </div>
+        </div>
+        <div class="panel panel-default col-lg-4">
+            <div class="img-panel"><img src="/images/ColorScheme.jpg"></div>
+            <div class="panel-body">
+             
+            </div>
+        </div>
+    </div>
+</div>
 
 <% for(var i = 0; i < recipes.length; i++ ) { %>
-  <div class="grid">
-    <div class="grid-item list-inline-block pull-left">
-      <a href="/<%= recipes[i].id %>"><%= recipes[i].title %></a>
-      <ul>Cook time:<%= recipes[i].cookTime %></ul>
-      <ul>Prep time:<%= recipes[i].prepTime %></ul>
-      <ul>Serves:<%= recipes[i].serves %></ul>
-      <ul>Skill:<%= recipes[i].skill %></ul>
-    </div>
-  </div>
+  
  <% } %>
 
-
-<div class="grid">
-
-  <div class="grid-item">
-    
+<div class="grid top1">
+  <div class="grid-item food1">
+    <img class="img" id="myImg" src="/images/ColorScheme.jpg">
   </div>
-
-  <div class="grid-item grid-item--width2 grid-item--height2">
-  
-  </div>
-
-  <div class="grid-item grid-item--height3">
-
-  </div>
-
-  <div class="grid-item grid-item--height2">
-
-  </div>
-
-  <div class="grid-item grid-item--width3">
-
-  </div>
-
-  <div class="grid-item grid-item--width2">
-
-  </div>
-
-  <div class="grid-item">
-
-  </div>
-
-  <div class="grid-item grid-item--height2">
-
-  </div>
-  
-  <div class="grid-item grid-item--width2 grid-item--height3">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item grid-item--height2">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item grid-item--width2 grid-item--height2">
-
-  </div>
-  
-  <div class="grid-item grid-item--width2">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item grid-item--height2">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item grid-item--height3">
-
-  </div>
-  
-  <div class="grid-item grid-item--height2">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item">
-
-  </div>
-  
-  <div class="grid-item grid-item--height2">
-
-  </div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item grid-item--height3"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item grid-item--width3"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item grid-item--width2 grid-item--height3"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--width2 grid-item--height2"></div>
+  <div class="grid-item grid-item--width2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height3"></div>
+  <div class="grid-item grid-item--height2"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item grid-item--height2"></div>
 </div>

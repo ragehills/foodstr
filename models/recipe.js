@@ -29,6 +29,9 @@ var RecipeSchema = mongoose.Schema({
 	skill: {
 	    type: Number,
 	    required: true
+  	},
+  	likes: {
+  		type: Number
   	}
 });
 

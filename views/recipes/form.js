@@ -30,15 +30,16 @@
 				<label for="skill">Difficulty Level</label>
 				<input type="number" class="form-control" name="skill" value="<%= recipe.skill %>" min="0" max="5">
 
-				<br>
-
-				<label for="saveRecipe"></label>
-				<input type="submit" name="saveRecipe" value="Save Recipe">
-			  	<% if(recipe.id != "") { %>
-			 	<label for="_method"></label>
-			  	<input type="hidden" name="_method" value="PUT">
-			  	<% } %>
 			</div>
 		</div>
 	</div>
+</form>
+
+i<form action="/<%= recipe.id %>" method="POST">
+	<label for="saveRecipe"></label>
+	<input type="submit" name="saveRecipe" value="Save Recipe">
+  	<% if(recipe.id != "") { %>
+ 	<label for="_method"></label>
+  	<input type="hidden" name="_method" value="PUT">
+  	<% } %>
 </form>
