@@ -30,9 +30,9 @@ var RecipeSchema = mongoose.Schema({
 	    type: Number,
 	    required: true
   	},
-  	likes: {
+  	likes: [{
   		type: Number
-  	}
+  	}]
 });
 
 module.exports = mongoose.model('Recipe', RecipeSchema);

@@ -40,7 +40,10 @@ function newRecipes(req, res) {
 }
 
 function createRecipes(req, res) {
+	console.log("Yeah its happening");
+	console.log(req.body)
 	Recipe.create(req.body, function(err, recipe) {
+		console.log(recipe);
 		if(err) req.flash('error' , "Sorry, something went wrong with posting your recipe please try again!");
 		User.findByIdAndUpdate(req.user.id, { $addToSet: { recipes: recipe } }, function(err, user) {
 			if(err) req.flash('error' , "Sorry, something went wrong with posting your recipe please try again!");

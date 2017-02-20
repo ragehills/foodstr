@@ -1,17 +1,17 @@
 <form action="/<%= recipe.id %>" method="POST">
 	<div class="input-group">
 		<span class="input-group-addon" id="basic-addon1">Recipe Title</span>
-		<input type="text" class="form-control" placeholder="Enter a title" value="<%= recipe.title %>" aria-describedby="basic-addon1">
+		<input type="text" class="form-control" name="title" placeholder="Enter a title" value="<%= recipe.title %>" aria-describedby="basic-addon1">
 	</div>
 	<br>
 	<div class="form-group">
   		<label for="comment">Ingredients:</label>
-  		<textarea type="text" class="form-control" rows="5" id="comment" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>
+  		<textarea type="text" class="form-control" rows="5" id="comment" name="ingredient" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>
 	</div>
 
 	<div class="form-group">
 		<label for="comment">Method:</label>
-		<textarea type="text" class="form-control" rows="5" id="comment" placeholder="Method"><%= recipe.method %></textarea>
+		<textarea type="text" class="form-control" rows="5" id="comment" name="method" placeholder="Method"><%= recipe.method %></textarea>
 	</div>
 
 	<div class="row">
@@ -33,15 +33,9 @@
 			</div>
 		</div>
 	</div>
-	<% include post.js %>
-</form>
-
-
-i<form action="/<%= recipe.id %>" method="POST">
 	<label for="saveRecipe"></label>
-	<input type="submit" name="saveRecipe" value="Save Recipe">
+	<input type="submit" value="Save Recipe">
   	<% if(recipe.id != "") { %>
- 	<label for="_method"></label>
-  	<input type="hidden" name="_method" value="PUT">
+	  	<input type="hidden" name="_method" value="PUT">
   	<% } %>
 </form>

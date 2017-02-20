@@ -1,0 +1,8 @@
+<form action="/<%= recipe.id %>" method="POST">
+	<label for="saveRecipe"></label>
+	<input type="submit" name="saveRecipe" value="Save Recipe">
+  	<% if(recipe.id != "") { %>
+ 	<label for="_method"></label>
+  	<input type="hidden" name="_method" value="PUT">
+  	<% } %>
+</form>
