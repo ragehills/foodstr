@@ -6,12 +6,12 @@
 	<br>
 	<div class="form-group">
   		<label for="comment">Ingredients:</label>
-  		<textarea class="form-control" rows="5" id="comment" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>
+  		<textarea type="text" class="form-control" rows="5" id="comment" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>
 	</div>
 
 	<div class="form-group">
 		<label for="comment">Method:</label>
-		<textarea class="form-control" rows="5" id="comment" placeholder="Method"><%= recipe.method %></textarea>
+		<textarea type="text" class="form-control" rows="5" id="comment" placeholder="Method"><%= recipe.method %></textarea>
 	</div>
 
 	<div class="row">
@@ -30,14 +30,15 @@
 				<label for="skill">Difficulty Level</label>
 				<input type="number" class="form-control" name="skill" value="<%= recipe.skill %>" min="0" max="5">
 
+				<br>
+
+				<label for="saveRecipe"></label>
+				<input type="submit" name="saveRecipe" value="Save Recipe">
+			  	<% if(recipe.id != "") { %>
+			 	<label for="_method"></label>
+			  	<input type="hidden" name="_method" value="PUT">
+			  	<% } %>
 			</div>
 		</div>
 	</div>
-
-	<input type="submit" value="Save recipe">
-	<% if(recipe.id != "") { %>
-	<input type="hidden" name="_method" value="PUT">
-	<% } %>
 </form>
-
-

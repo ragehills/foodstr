@@ -1,5 +1,6 @@
 body {
 	background-color: white;
+  font-family: 'Gentium Book Basic', serif;
 }
 
 .navbar-default {
@@ -85,7 +86,7 @@ h1, h2, h3, h4, h5 {
 
 .grid-item {
   width: 160px;
-  height: 120px;
+  height: 140px;
   float: left;
   background: white;
   border: 1.2px solid #333;
