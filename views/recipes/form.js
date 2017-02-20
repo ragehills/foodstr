@@ -33,7 +33,9 @@
 			</div>
 		</div>
 	</div>
+	<% include post.js %>
 </form>
+
 
 i<form action="/<%= recipe.id %>" method="POST">
 	<label for="saveRecipe"></label>
