@@ -11,8 +11,8 @@
 				<p>Prep Time: <%= recipe.prepTime %></p>
 				<p>Serves: <%= recipe.serves %></p>
 				<p>Skill Level: <%= recipe.skill %></p>
-				<button id="like" class="likes">likes</button>
-				<p id="increment">0</p>
+				<button id="like" class="likes btn btn-danger" data-id="<%= recipe._id %>">likes</button>
+				<p id="increment"></p>
 		    </div>
 	    	<a class="btn btn-danger padding" href="/<%= recipe.id %>/edit">edit</a>
 	    </div>

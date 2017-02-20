@@ -203,8 +203,14 @@ h1, h2, h3, h4, h5 {
   z-index: 3;
 }
 
+.grid-item {
+  position: relative;
+}
+
 .float {
-  position: relative
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
 }
 /*#rgb(165,168,149) quick silver

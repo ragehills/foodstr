@@ -12,6 +12,11 @@ var flash = require('connect-flash');
 var User = require('./models/user');
 var path = require('path');
 
+mongoose.connect('mongodb://localhost/recipes', function() {
+  console.log('database connected.')
+})
+
+
 app.use(cookieParser());
 
 app.use(session({
@@ -28,10 +33,6 @@ app.use(function(req, res, next){
     // console.log(res.locals.errors);
     next();
 });
-
-mongoose.connect('mongodb://localhost/recipes', function() {
-	console.log('database connected.')
-})
 
 // use public folder to insert external files into the wesite page
 app.use(express.static(path.join(__dirname, 'public')))
@@ -83,7 +84,7 @@ app.use(function(req,res,next) {
 
 app.use(function(req, res, next) {
   var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
-  if(urls.indexOf(req.url) === -1) {
+  if(urls.indexOf(req.url) === -1 || (/\/api/g).test(req.url)) {
     if (!req.user) return res.redirect('/sessions/new');
   }
   next();

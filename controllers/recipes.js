@@ -31,7 +31,8 @@ function newRecipes(req, res) {
 		cookTime: 0,
 		prepTime: 0,
 		serves: 0,
-		skill: 0
+		skill: 0,
+		likes: 0
 	}
 	res.render("recipes/new" , {
 		title: "New Recipe",

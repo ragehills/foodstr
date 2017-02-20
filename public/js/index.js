@@ -1,7 +1,4 @@
 $(document).ready(function(){
-
-
-
 	var $grid = $('.grid').masonry({
 	  itemSelector: '.grid-item',
 	  columnWidth: 160,
@@ -16,9 +13,10 @@ $(document).ready(function(){
 	});
 
 	$(".likes").click(function() {
+		var id = $(this).attr('data-id');
         $.ajax({
             type: 'PATCH',
-            url: "/api/recipes/" + recipes._id
+            url: "/api/recipes/" + id
         }).catch(function(err) {
             console.log(err);
         }).done(function(response) {
