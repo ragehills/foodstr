@@ -108,6 +108,7 @@ h1, h2, h3, h4, h5 {
 .grid {
   background: white;
   max-width: 1200px;
+  border: 0px
 }
 
 /* clearfix */
@@ -115,6 +116,7 @@ h1, h2, h3, h4, h5 {
   content: '';
   display: block;
   clear: both;
+  border: 0px
 }
 
 /* ---- grid-item ---- */
@@ -124,7 +126,7 @@ h1, h2, h3, h4, h5 {
   height: 120px;
   float: left;
   background: white;
-  border: 1px solid #333;
+  border: 0px;
   border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
   background-image: cover;
@@ -143,12 +145,14 @@ h1, h2, h3, h4, h5 {
   width: 320px;
   height: 360px;
   z-index: 2; /* above other items */
+  border: 0px
 }
 
 .grid-item:hover {
   background: rgba(32, 196, 146, 0.5);
   border-color: white;
   cursor: pointer;
+  border: 0px
 }
 
 .food1 img {
@@ -174,14 +178,13 @@ h1, h2, h3, h4, h5 {
   float: left;
   padding: 3px;
   margin-top:10px;
-  background-image: url('smiley.gif');
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
 }
 
 .img {
-  z-index:-1;
+  width: 100%;
 }
 
 .panel, .showImg {
@@ -198,6 +201,11 @@ h1, h2, h3, h4, h5 {
 
 .panel {
   z-index: 3;
+}
+
+.float {
+  position: relative
+  z-index: 2;
 }
 /*#rgb(165,168,149) quick silver
 #rgb(221,216,196) Bone
