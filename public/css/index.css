@@ -195,6 +195,10 @@ h1, h2, h3, h4, h5 {
 .padding {
   margin: 10px;
 }
+
+.panel {
+  z-index: 3;
+}
 /*#rgb(165,168,149) quick silver
 #rgb(221,216,196) Bone
 #rgb(138,196,146) Dark sea green

@@ -6,3 +6,22 @@
   	<input type="hidden" name="_method" value="PUT">
   	<% } %>
 </form>
+
+<div class="row">
+<% for(var i = 0; i < user.recipes.length; i++ ) { %>
+  <div class="container">
+    <div class="panel panel-default col-lg-4">
+      <div class="img-panel"><img src="/images/ColorScheme.jpg"></div>
+      <div class="panel-body">
+      	<h3><a href="/<%= user.recipes[i].id %>"><%= user.recipes[i].title %></a></h3>
+	    <p><%= user.recipes[i].ingredient %></p>
+	    <p><%= user.recipes[i].method %></p>
+	    <p><%= user.recipes[i].cookTime %></p>
+	    <p><%= user.recipes[i].prepTime %></p>
+	    <p><%= user.recipes[i].serves %></p>
+	    <p><%= user.recipes[i].skill %></p>
+      </div>
+    </div>
+  </div>
+ <% } %> 
+</div>
