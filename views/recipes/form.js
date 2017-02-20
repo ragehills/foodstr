@@ -3,7 +3,16 @@
 		<span class="input-group-addon" id="basic-addon1">Recipe Title</span>
 		<input type="text" class="form-control" name="title" placeholder="Enter a title" value="<%= recipe.title %>" aria-describedby="basic-addon1">
 	</div>
+
 	<br>
+
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">Url</span>
+		<input type="text" class="form-control" name="url" placeholder="Enter a Url" value="<%= recipe.url %>" aria-describedby="basic-addon1">
+	</div>
+
+	<br>
+
 	<div class="form-group">
   		<label for="comment">Ingredients:</label>
   		<textarea type="text" class="form-control" rows="5" id="comment" name="ingredient" placeholder="Enter your ingredients"><%= recipe.ingredient %></textarea>

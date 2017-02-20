@@ -30,6 +30,11 @@ var RecipeSchema = mongoose.Schema({
 	    type: Number,
 	    required: true
   	},
+  	
+  	url: {
+  		type: String
+  	},
+
   	likes: [{
   		type: Number
   	}]
