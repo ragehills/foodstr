@@ -184,6 +184,17 @@ h1, h2, h3, h4, h5 {
   z-index:-1;
 }
 
+.panel, .showImg {
+  width: auto;
+}
+
+.showImg {
+  padding: 10px;
+}
+
+.padding {
+  margin: 10px;
+}
 /*#rgb(165,168,149) quick silver
 #rgb(221,216,196) Bone
 #rgb(138,196,146) Dark sea green
