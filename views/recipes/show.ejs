@@ -1,10 +1,9 @@
-<h1>Show (enter a new page title)</h1>
+<h1><%= recipe.title %></h1>
 <div class="row">
 	<div class="container">
 	    <div class="panel panel-default col-lg-12">
 	      	<div class="showImg"><img src="<%= recipe.url %>"></div>
 		    <div class="panel-body">
-		      	<h2><%= recipe.title %></h2>
 			    <p><%= recipe.ingredient %></p>
 				<p><%= recipe.method %></p>
 				<p>Cook Time: <%= recipe.cookTime %></p>
